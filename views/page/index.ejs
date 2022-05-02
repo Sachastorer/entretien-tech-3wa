@@ -1,0 +1,29 @@
+<%- include('../partials/header') -%>
+<!-- Main section -->
+<main>
+  
+    <!-- New member form -->
+    <h2>Ajouter un(e) Argonaute</h2>
+    <form class="new-member-form" action="/add" method="post">
+      <label for="name">Nom de l&apos;Argonaute</label>
+      <input id="name" name="name" type="text" placeholder="Charalampos" />
+      <button type="submit">Envoyer</button>
+    </form>
+    
+    <!-- Member list -->
+
+    <% if(typeof characters == 'undefined'0){ %>
+      <h1>oui</h1>
+    <% } else{ %>
+      <h1>non</h1>
+    <% } %>
+
+    <h2>Membres de l'équipage</h2>
+
+    <section class="member-list">
+      <div class="member-item">Eleftheria</div>
+      <div class="member-item">Gennadios</div>
+      <div class="member-item">Lysimachos</div>
+    </section>
+  </main>
+<%- include('../partials/footer') -%>

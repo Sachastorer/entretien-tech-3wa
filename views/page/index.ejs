@@ -12,18 +12,12 @@
     
     <!-- Member list -->
 
-    <% if(typeof characters == 'undefined'0){ %>
-      <h1>oui</h1>
-    <% } else{ %>
-      <h1>non</h1>
-    <% } %>
-
     <h2>Membres de l'équipage</h2>
 
-    <section class="member-list">
-      <div class="member-item">Eleftheria</div>
-      <div class="member-item">Gennadios</div>
-      <div class="member-item">Lysimachos</div>
-    </section>
+    <ul>
+      <% for(var i=0; i<characters.length; i++) {%>
+         <li><%= characters[i].name %><a href="/delete/<%= characters[i]._id %>"> X</a></li>
+      <% } %>
+      </ul>
   </main>
 <%- include('../partials/footer') -%>

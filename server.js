@@ -35,7 +35,7 @@ app.get('/', (req, res)=> {
 
   CharacterModel.find({})
   .then(docs => {
-    console.log(docs);
+    // console.log(docs);
     if(!docs) throw err
     res.render('page/index', {characters: docs});
   })
@@ -54,13 +54,27 @@ app.post('/add', (req, res) => {
 
   Character.save() //retourne un "document"
   .then((doc) => {
-      console.log(doc)
-      res.render('page/index');
+      // console.log(doc)
+
+      res.redirect('/');
   })
   .catch((err) => {
       console.log(err)
       res.json({"message": "échec de l'insertion"})
   })
+})
+
+app.get("/delete/:id", (req, res) => {
+
+  CharacterModel.deleteOne({"_id": req.params.id})
+      .then((d) => {
+          console.log(d)
+          res.redirect("/")
+      })
+      .catch((err) => {
+          console.log(err)
+          res.json({"message": err})
+      })
 })
 
 app.listen(port, () => {

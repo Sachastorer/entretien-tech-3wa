@@ -14,10 +14,12 @@
 
     <h2>Membres de l'équipage</h2>
 
+    <% if(characters) {%>
     <ul>
-      <% for(var i=0; i<characters.length; i++) {%>
-         <li><%= characters[i].name %><a href="/delete/<%= characters[i]._id %>"> X</a></li>
-      <% } %>
-      </ul>
+      <% characters.forEach((char) => { %>
+        <li><a href="/delete/<%= char._id %>"> X</a><%= char.name %></li>
+      <% }); %>
+    </ul>
+    <% } %>
   </main>
 <%- include('../partials/footer') -%>
